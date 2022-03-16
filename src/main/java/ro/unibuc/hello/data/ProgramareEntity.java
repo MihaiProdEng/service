@@ -6,8 +6,8 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Id;
 
 @Component
-public class ProgramareEntity {
-
+public class ProgramareEntity
+{
     @Id
     private String idCont;
     @Id

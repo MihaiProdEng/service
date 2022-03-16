@@ -27,6 +27,7 @@ public class HelloWorldController
 
     @Autowired
     private MovieRepository movieRepository;
+
     @Autowired
     private ProgramareRepository programareRepository;
 
@@ -96,15 +97,19 @@ public class HelloWorldController
     @RequestMapping("/addMovie")
     @PostMapping("/addMovie")
     @ResponseBody
-    public String addMovie(@RequestParam String movieName, @RequestParam String startTime) {
-
+    public String addMovie(@RequestParam String movieName, @RequestParam String startTime)
+    {
         SimpleDateFormat formatter=new SimpleDateFormat("yyyy/MM/dd HH:mm");
-        try {
+        try
+        {
             Date date = formatter.parse(startTime);
-            MovieEntity this_movie = new MovieEntity(movieName, date);
+            // TODO
+            MovieEntity this_movie = new MovieEntity("1", movieName, date);
 
             movieRepository.insert(this_movie);
-        } catch (ParseException e) {
+        }
+        catch (ParseException e)
+        {
             e.printStackTrace();
         }
 
@@ -113,7 +118,8 @@ public class HelloWorldController
 
     @RequestMapping("/deteleMovies")
     @ResponseBody
-    public String deleteMovies (){
+    public String deleteMovies ()
+    {
         movieRepository.deleteAll();
         return movieRepository.findAll().toString();
     }

@@ -7,7 +7,8 @@ import javax.persistence.Column;
 
 
 @Component
-public class AccountEntity {
+public class AccountEntity
+{
 
     @Id
     public String id;
@@ -15,15 +16,15 @@ public class AccountEntity {
     public String name;
     public String password;
 
-    public AccountEntity () {}
-
-    public AccountEntity(String name, String password) {
+    public AccountEntity(String name, String password)
+    {
         this.name = name;
         this.password = password;
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return String.format(
                 "Account[id='%s', name='%s', password='%s']",
                 id, name, password);
