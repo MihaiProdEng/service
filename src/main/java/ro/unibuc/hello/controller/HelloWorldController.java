@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -27,6 +26,7 @@ public class HelloWorldController
 
     @Autowired
     private MovieRepository movieRepository;
+
     @Autowired
     private ProgramareRepository programareRepository;
 
@@ -73,7 +73,8 @@ public class HelloWorldController
     @RequestMapping("/allAccounts")
     @GetMapping("/allAccounts")
     @ResponseBody
-    public String all() {
+    public String all()
+    {
         return accountRepository.findAll().toString();
     }
 
@@ -96,15 +97,19 @@ public class HelloWorldController
     @RequestMapping("/addMovie")
     @PostMapping("/addMovie")
     @ResponseBody
-    public String addMovie(@RequestParam String movieName, @RequestParam String startTime) {
-
+    public String addMovie(@RequestParam String movieName, @RequestParam String startTime)
+    {
         SimpleDateFormat formatter=new SimpleDateFormat("yyyy/MM/dd HH:mm");
-        try {
+        try
+        {
             Date date = formatter.parse(startTime);
-            MovieEntity this_movie = new MovieEntity(movieName, date);
+            // TODO
+            MovieEntity this_movie = new MovieEntity("1", movieName, date);
 
             movieRepository.insert(this_movie);
-        } catch (ParseException e) {
+        }
+        catch (ParseException e)
+        {
             e.printStackTrace();
         }
 
@@ -113,14 +118,16 @@ public class HelloWorldController
 
     @RequestMapping("/deteleMovies")
     @ResponseBody
-    public String deleteMovies (){
+    public String deleteMovies ()
+    {
         movieRepository.deleteAll();
         return movieRepository.findAll().toString();
     }
 
     @RequestMapping("/DOOM")
     @ResponseBody
-    public void Doom (){
+    public void Doom ()
+    {
         accountRepository.deleteAll();
     }
 }
