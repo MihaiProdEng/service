@@ -12,6 +12,7 @@ public class AccountEntity
 
     @Id
     public String id;
+
     @Column(unique=true)
     public String name;
     public String password;

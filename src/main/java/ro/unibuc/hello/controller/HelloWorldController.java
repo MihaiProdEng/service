@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -74,7 +73,8 @@ public class HelloWorldController
     @RequestMapping("/allAccounts")
     @GetMapping("/allAccounts")
     @ResponseBody
-    public String all() {
+    public String all()
+    {
         return accountRepository.findAll().toString();
     }
 
@@ -126,7 +126,8 @@ public class HelloWorldController
 
     @RequestMapping("/DOOM")
     @ResponseBody
-    public void Doom (){
+    public void Doom ()
+    {
         accountRepository.deleteAll();
     }
 }
