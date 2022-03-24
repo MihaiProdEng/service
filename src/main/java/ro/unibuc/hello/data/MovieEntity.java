@@ -16,9 +16,11 @@ public class MovieEntity
     public String movieName;
     public Date startTime;
 
-    public MovieEntity(String id, String movieName, Date startTime)
+    public MovieEntity() {
+    }
+
+    public MovieEntity(String movieName, Date startTime)
     {
-        this.id = id;
         this.movieName = movieName;
         this.startTime = startTime;
     }

@@ -32,8 +32,7 @@ public class HelloWorldController
 
     @GetMapping("/hello-world")
     @ResponseBody
-    public Greeting sayHello(@RequestParam(name="name", required=false, defaultValue="Stranger") String name)
-    {
+    public Greeting sayHello(@RequestParam(name="name", required=false, defaultValue="Stranger") String name) {
         return new Greeting(counter.incrementAndGet(), String.format(helloTemplate, name));
     }
 
@@ -103,8 +102,7 @@ public class HelloWorldController
         try
         {
             Date date = formatter.parse(startTime);
-            // TODO
-            MovieEntity this_movie = new MovieEntity("1", movieName, date);
+            MovieEntity this_movie = new MovieEntity(movieName, date);
 
             movieRepository.insert(this_movie);
         }

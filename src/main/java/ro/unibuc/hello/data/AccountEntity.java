@@ -17,11 +17,12 @@ public class AccountEntity
     public String name;
     public String password;
 
-    public AccountEntity(String name, String password)
-    {
+    public AccountEntity(String name, String password) {
         this.name = name;
         this.password = password;
     }
+
+    public AccountEntity() {}
 
     @Override
     public String toString()
