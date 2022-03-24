@@ -7,22 +7,20 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Component
-public class MovieEntity {
+public class MovieEntity
+{
     @Id
     public String id;
-    @Column(unique=true)
+
+    @Column(unique = true)
     public String movieName;
     public Date startTime;
 
-    public MovieEntity() {}
-
-    public MovieEntity(String id, String movieName, Date startTime) {
-        this.id = id;
-        this.movieName = movieName;
-        this.startTime = startTime;
+    public MovieEntity() {
     }
 
-    public MovieEntity(String movieName, Date startTime) {
+    public MovieEntity(String movieName, Date startTime)
+    {
         this.movieName = movieName;
         this.startTime = startTime;
     }

@@ -7,11 +7,10 @@ import ro.unibuc.hello.data.AccountRepository;
 
 @SpringBootApplication
 @EnableMongoRepositories(basePackageClasses = AccountRepository.class)
-public class HelloApplication {
-
-
-	public static void main(String[] args) {
+public class HelloApplication
+{
+	public static void main(String[] args)
+	{
 		SpringApplication.run(HelloApplication.class, args);
 	}
-
 }

@@ -7,23 +7,26 @@ import javax.persistence.Column;
 
 
 @Component
-public class AccountEntity {
+public class AccountEntity
+{
 
     @Id
     public String id;
+
     @Column(unique=true)
     public String name;
     public String password;
-
-    public AccountEntity () {}
 
     public AccountEntity(String name, String password) {
         this.name = name;
         this.password = password;
     }
 
+    public AccountEntity() {}
+
     @Override
-    public String toString() {
+    public String toString()
+    {
         return String.format(
                 "Account[id='%s', name='%s', password='%s']",
                 id, name, password);

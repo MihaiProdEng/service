@@ -7,13 +7,11 @@ import ro.unibuc.hello.data.AccountRepository;
 import ro.unibuc.hello.data.InformationRepository;
 
 @SpringBootTest
-class HelloApplicationTests {
-
+class HelloApplicationTests
+{
 	@MockBean
 	AccountRepository mockRepository;
 
-	@Test
-	void contextLoads() {
-	}
-
+//	@Test
+//	void contextLoads() {}
 }
