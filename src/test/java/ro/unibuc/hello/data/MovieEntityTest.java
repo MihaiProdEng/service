@@ -30,12 +30,12 @@ class MovieEntityTest
 
     Date date = StringToDate("2015-12-06 17:03:00");
 
-    MovieEntity myMovie = new MovieEntity("999", "Star Wars", date);
+    MovieEntity myMovie = new MovieEntity("Star Wars", date);
 
     @Test
     void testgetId()
     {
-        Assertions.assertEquals("999", myMovie.getId());
+        Assertions.assertNull(myMovie.getId());
     }
 
     @Test

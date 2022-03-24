@@ -9,7 +9,6 @@ import javax.persistence.Column;
 @Component
 public class AccountEntity
 {
-
     @Id
     public String id;
 
@@ -24,6 +23,11 @@ public class AccountEntity
 
     public AccountEntity() {}
 
+    public void setId(String id)
+    {
+        this.id = id;
+    }
+
     @Override
     public String toString()
     {
@@ -31,4 +35,11 @@ public class AccountEntity
                 "Account[id='%s', name='%s', password='%s']",
                 id, name, password);
     }
+
+//    public AccountEntity(String id, String name, String password)
+//    {
+//        this.id = id;
+//        this.name = name;
+//        this.password = password;
+//    }
 }
