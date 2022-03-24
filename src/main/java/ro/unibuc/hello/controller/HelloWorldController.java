@@ -3,14 +3,9 @@ package ro.unibuc.hello.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ro.unibuc.hello.data.*;
@@ -77,21 +72,7 @@ public class HelloWorldController
         return accountRepository.findAll().toString();
     }
 
-    @RequestMapping("/updateAccount")
-    @PutMapping("/updateAccount")
-    @ResponseBody
-    public String update(@RequestParam String name, @RequestParam String newName)
-    {
-        if(accountRepository.findAllByName(newName).stream().count() == 0)
-        {
-            accountRepository.changeName(newName, name);
-            return accountRepository.findAllByName(newName).toString();
-        }
-        else
-        {
-            return "newName in use...";
-        }
-    }
+
 
     @RequestMapping("/addMovie")
     @PostMapping("/addMovie")
@@ -123,7 +104,7 @@ public class HelloWorldController
     }
 
     @RequestMapping("/addProgramare")
-    @PostMapping("/addProgramare")
+    @PostMapping()
     @ResponseBody
     public String addMovie(@RequestParam String accountName, @RequestParam String movieName , @RequestParam String date, @RequestParam String place)
     {
@@ -138,7 +119,14 @@ public class HelloWorldController
         {
             e.printStackTrace();
         }
-        return programareRepository.findAllbyAccountName(accountName).toString();
+        return programareRepository.findAllByIdCont(accountName).toString();
+    }
+
+
+    @RequestMapping("/allProgramari")
+    @ResponseBody
+    public String allProgramari () {
+        return programareRepository.findAll().toString();
     }
 
     @RequestMapping("/DOOM")
