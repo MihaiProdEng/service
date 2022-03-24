@@ -12,17 +12,28 @@ public class ProgramareEntity
     private String idCont;
     @Id
     public String idFilm;
-
+    @Id
     public String data;
+    @Id
     public String loc;
 
-    public ProgramareEntity() {
-    }
+    public ProgramareEntity() {}
 
-    public ProgramareEntity(String idFilm, String data, String loc) {
+    public ProgramareEntity(String idCont, String idFilm, String data, String loc)
+    {
         this.idCont = idCont;
         this.idFilm = idFilm;
         this.data = data;
         this.loc = loc;
+    }
+
+    public String getData()
+    {
+        return data;
+    }
+
+    public String getLoc()
+    {
+        return loc;
     }
 }
