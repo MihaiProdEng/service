@@ -114,12 +114,31 @@ public class HelloWorldController
         return movieRepository.findAll().toString();
     }
 
-    @RequestMapping("/deteleMovies")
+    @RequestMapping("/deleteMovies")
     @ResponseBody
     public String deleteMovies ()
     {
         movieRepository.deleteAll();
         return movieRepository.findAll().toString();
+    }
+
+    @RequestMapping("/addProgramare")
+    @PostMapping("/addProgramare")
+    @ResponseBody
+    public String addMovie(@RequestParam String accountName, @RequestParam String movieName , @RequestParam String date, @RequestParam String place)
+    {
+        SimpleDateFormat formatter=new SimpleDateFormat("yyyy/MM/dd HH:mm");
+        try
+        {
+            Date movieDate = formatter.parse(date);
+            ProgramareEntity this_programare = new ProgramareEntity(accountName, movieName, movieDate, place);
+            programareRepository.insert(this_programare);
+        }
+        catch (ParseException e)
+        {
+            e.printStackTrace();
+        }
+        return programareRepository.findAllbyAccountName(accountName).toString();
     }
 
     @RequestMapping("/DOOM")

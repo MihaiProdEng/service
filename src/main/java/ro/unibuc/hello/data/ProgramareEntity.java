@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.Date;
 
 @Component
 public class ProgramareEntity
@@ -13,13 +14,13 @@ public class ProgramareEntity
     @Id
     public String idFilm;
     @Id
-    public String data;
+    public Date data;
     @Id
     public String loc;
 
     public ProgramareEntity() {}
 
-    public ProgramareEntity(String idCont, String idFilm, String data, String loc)
+    public ProgramareEntity(String idCont, String idFilm, Date data, String loc)
     {
         this.idCont = idCont;
         this.idFilm = idFilm;
@@ -27,7 +28,7 @@ public class ProgramareEntity
         this.loc = loc;
     }
 
-    public String getData()
+    public Date getData()
     {
         return data;
     }
