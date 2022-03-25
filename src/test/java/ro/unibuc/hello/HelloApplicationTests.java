@@ -11,7 +11,4 @@ class HelloApplicationTests
 {
 	@MockBean
 	AccountRepository mockRepository;
-
-//	@Test
-//	void contextLoads() {}
 }

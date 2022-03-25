@@ -56,34 +56,4 @@ class HelloWorldControllerTest
         // Assert
         Assertions.assertEquals(result.getResponse().getContentAsString(), objectMapper.writeValueAsString(greeting));
     }
-
-    @Test
-    void test_addAccount() throws Exception
-    {
-        // Arrange
-        AccountEntity myAccount = new AccountEntity("marius26", "1234");
-
-        // Act
-        MvcResult result = mockMvc.perform(get("/addAccount?name=marius26&password=1234")
-                        .content(objectMapper.writeValueAsString(myAccount))
-                        .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andReturn();
-
-        // Assert
-        Assertions.assertEquals("Name allready in use", objectMapper.writeValueAsString(myAccount));
-    }
-
-//    @LocalServerPort
-//    private int port;
-//
-//    @Autowired
-//    private TestRestTemplate restTemplate;
-//
-//    @Test
-//    public void shouldPassIfStringMatches() throws Exception
-//    {
-//        assertThat(restTemplate.getForObject("http://localhost:8090/allAccounts",
-//                String.class)).contains("[Account[id='622ce4cad8eedb3a34bcf4f0', name='marius26', password='1234'], Account[id='622ce9c97591332dabf41148', name='mamata', password='1234']]");
-//    }
 }
