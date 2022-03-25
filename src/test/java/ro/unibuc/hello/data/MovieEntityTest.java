@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import ro.unibuc.hello.data.MovieEntity;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;

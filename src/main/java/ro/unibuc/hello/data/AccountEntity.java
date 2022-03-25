@@ -35,11 +35,4 @@ public class AccountEntity
                 "Account[id='%s', name='%s', password='%s']",
                 id, name, password);
     }
-
-//    public AccountEntity(String id, String name, String password)
-//    {
-//        this.id = id;
-//        this.name = name;
-//        this.password = password;
-//    }
 }
