@@ -3,7 +3,6 @@ package ro.unibuc.hello.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,21 +15,12 @@ public class HelloWorldController
 {
     @Autowired
     private AccountRepository accountRepository;
-    private static final String helloTemplate = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
 
     @Autowired
     private MovieRepository movieRepository;
 
     @Autowired
     private ProgramareRepository programareRepository;
-
-    @GetMapping("/hello-world")
-    @ResponseBody
-    public Greeting sayHello(@RequestParam(name="name", required=false, defaultValue="Stranger") String name)
-    {
-        return new Greeting(counter.incrementAndGet(), String.format(helloTemplate, name));
-    }
 
     @RequestMapping("/addAccount")
     @PostMapping("/addAccount")
@@ -68,12 +58,10 @@ public class HelloWorldController
     @RequestMapping("/allAccounts")
     @GetMapping("/allAccounts")
     @ResponseBody
-    public String all()
+    public String allAccounts()
     {
         return accountRepository.findAll().toString();
     }
-
-
 
     @RequestMapping("/addMovie")
     @PostMapping("/addMovie")
