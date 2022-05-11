@@ -3,12 +3,10 @@ package ro.unibuc.hello.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ro.unibuc.hello.data.*;
-import ro.unibuc.hello.dto.Greeting;
 
 @Controller
 public class HelloWorldController
@@ -47,7 +45,7 @@ public class HelloWorldController
         AccountEntity Account = new AccountEntity(name, password);
         if (accountRepository.findAllByNameAndAndPassword(name, password).stream().count() == 1)
         {
-            return "ESTI LOGAT FRATE";
+            return "ESTI LOGAT";
         }
         else
         {
