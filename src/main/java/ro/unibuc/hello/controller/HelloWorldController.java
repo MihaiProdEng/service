@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import ro.unibuc.hello.data.*;
+import io.micrometer.core.annotation.Counted;
+import io.micrometer.core.annotation.Timed;
+import io.micrometer.core.instrument.MeterRegistry;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Controller
 public class HelloWorldController
@@ -20,11 +24,19 @@ public class HelloWorldController
     @Autowired
     private ProgramareRepository programareRepository;
 
+    @Autowired
+    MeterRegistry metricsRegistry;
+
+    private final AtomicLong counter = new AtomicLong();
+
     @RequestMapping("/addAccount")
     @PostMapping("/addAccount")
     @ResponseBody
+//    @Timed(value = "addAccount.time", description = "Time taken to return greeting")
+    @Counted(value = "addAccount.count", description = "Times a new account was in the making")
     public String addAccount(@RequestParam String name, @RequestParam String password)
     {
+        metricsRegistry.counter("my_non_aop_metric", "endpoint", "hello").increment(counter.incrementAndGet());
         AccountEntity Account = new AccountEntity(name, password);
         if (accountRepository.findAllByName(name).stream().count() == 0)
         {
