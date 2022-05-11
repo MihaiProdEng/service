@@ -46,7 +46,7 @@ class HelloWorldControllerTest extends HelloWorldController
     @Test
     public void test_login_good()
     {
-        Assertions.assertEquals("ESTI LOGAT FRATE", login("marius26", "1234"));
+        Assertions.assertEquals("ESTI LOGAT", login("marius26", "1234"));
     }
 
     @Test
